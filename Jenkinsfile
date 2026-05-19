@@ -31,7 +31,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
-                    pkill -f "app.py" || true
+                    pkill -f app.py || true
                     nohup venv/bin/python app.py > app.log 2>&1 &
                 '''
             }
@@ -40,10 +40,10 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline completed successfully.'
+            echo 'Pipeline SUCCESS 🚀'
         }
         failure {
-            echo 'Pipeline failed.'
+            echo 'Pipeline FAILED ❌'
         }
     }
 }
